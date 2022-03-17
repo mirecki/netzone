@@ -35,6 +35,7 @@ gem 'devise', '~> 4.8'
 gem 'doorkeeper', '~> 5.5', '>= 5.5.2'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'pundit', '~> 2.1'
+gem 'rails_admin'
 
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'omniauth-facebook', '~> 8.0'
