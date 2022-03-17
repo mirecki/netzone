@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise', '~> 4.8'
 gem 'doorkeeper', '~> 5.5', '>= 5.5.2'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'pundit', '~> 2.1'
 
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
