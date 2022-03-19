@@ -1,5 +1,6 @@
-RailsAdmin.config do |config|
+# frozen_string_literal: true
 
+RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
@@ -45,17 +46,15 @@ RailsAdmin.config do |config|
         class AuthorizationAdapter
           def authorize(action, abstract_model = nil, model_object = nil)
             record = model_object || abstract_model&.model
-            if action && !policy(record).send(*action_for_pundit(action))
-              raise ::Pundit::NotAuthorizedError.new("not allowed to #{action} this #{record}")
-            end
+            raise ::Pundit::NotAuthorizedError, "not allowed to #{action} this #{record}" if action && !policy(record).send(*action_for_pundit(action))
             @controller.instance_variable_set(:@_pundit_policy_authorized, true)
           end
-  
+
           def authorized?(action, abstract_model = nil, model_object = nil)
             record = model_object || abstract_model&.model
             policy(record).send(*action_for_pundit(action)) if action
           end
-  
+
           def action_for_pundit(action)
             [:rails_admin?, action]
           end
@@ -63,5 +62,4 @@ RailsAdmin.config do |config|
       end
     end
   end
-  
 end
