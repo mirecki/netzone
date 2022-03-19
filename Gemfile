@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'active_model_serializers', '~> 0.10.12'
+gem 'acts-as-taggable-on', '~> 9.0'
 gem 'ancestry'
 gem 'bootsnap', '>= 1.4.4', require: false
 
