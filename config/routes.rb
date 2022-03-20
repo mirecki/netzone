@@ -12,4 +12,15 @@ Rails.application.routes.draw do
       resources :films, only: [:index]
     end
   end
+
+  resources :films,   only: %i[index show]
+  resources :studios,    only: %i[index show]
+  resources :categories,  only: [:show]
+  resources :search,    only: [:index]
+
+  resource :cart, only: %i[destroy show] do
+    resources :items, only: %i[destroy create]
+  end
+
+  root to: 'main#index'
 end
