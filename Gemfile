@@ -35,7 +35,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise', '~> 4.8'
 gem 'doorkeeper', '~> 5.5', '>= 5.5.2'
+gem 'faker', '~> 2.16.0'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'pagy', '~> 4.10', '>= 4.10.1'
 gem 'pundit', '~> 2.1'
 gem 'rails_admin'
 
@@ -65,7 +67,6 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'faker', '~> 2.16.0'
   gem 'spring'
   # Code style checking and code formatting tool
   gem 'rubocop', require: false
