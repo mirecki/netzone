@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe ItemsController, type: :controller do
   render_views
 
-  let(:user)       { create :user }
-  let(:film)    { create :film }
-  let(:cart)       { create :cart, user: user }
+  let(:user) { create :user }
+  let(:film) { create :film }
+  let(:cart) { create :cart, user: user }
   let!(:item) { create :cart_item, cart: cart, film: film }
 
   let(:create_params) { { quantity: 1, film_id: film.id } }

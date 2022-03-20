@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe MainController, type: :controller do
   describe 'GET #index' do
-    let(:brands)  { create_list :brand, 3 }
-    let(:hits)    { create_list :product, 8 }
+    let(:studios) { create_list :studio, 3 }
+    let(:hits) { create_list :product, 8 }
 
     before { get :index }
 
@@ -14,11 +14,11 @@ RSpec.describe MainController, type: :controller do
         expect(subject).to render_template :index
       end
 
-      it 'instance var brands include only brands' do
-        expect(assigns(:brands)).to match_array(brands)
+      it 'instance var studios include only studios' do
+        expect(assigns(:studios)).to match_array(studios)
       end
 
-      it 'instance hits brands include only hits' do
+      it 'instance hits studios include only hits' do
         expect(assigns(:hits)).to match_array(hits)
       end
     end

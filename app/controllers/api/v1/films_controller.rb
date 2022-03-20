@@ -7,9 +7,9 @@ module Api
 
       def index
         @films = Film
-                    .all
-                    .includes(%i[related category])
-                    .limit(5)
+                 .all
+                 .includes(%i[related category])
+                 .limit(5)
         respond_with @films
       end
     end
