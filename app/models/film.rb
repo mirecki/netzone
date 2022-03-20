@@ -36,4 +36,7 @@ class Film < ApplicationRecord
   has_many :related, through: :related_films
 
   has_many :galleries
+
+  acts_as_taggable_on :categories
+  acts_as_taggable_on :studios
 end
