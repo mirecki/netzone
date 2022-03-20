@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CategoryController < ApplicationController
+class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     set_page_options

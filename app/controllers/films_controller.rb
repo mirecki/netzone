@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FilmtController < ApplicationController
+class FilmsController < ApplicationController
   before_action :set_film, only: [:show]
   helper_method :recent_films
 

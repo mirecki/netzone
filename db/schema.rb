@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_19_211116) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id"
     t.integer "film_id"
-    t.integer "copies"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"

@@ -5,7 +5,7 @@ class CreateCartItems < ActiveRecord::Migration[6.1]
     create_table :cart_items do |t|
       t.integer :cart_id
       t.integer :film_id
-      t.integer :copies
+      t.integer :quantity
       t.timestamps
     end
   end
