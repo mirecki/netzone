@@ -16,6 +16,7 @@
 #  index_cart_items_on_cart_id  (cart_id)
 #  index_cart_items_on_film_id  (film_id)
 #
+
 class CartItem < ApplicationRecord
   belongs_to :film
   belongs_to :cart
