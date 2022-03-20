@@ -8,7 +8,7 @@
 #  bytitle     :string
 #  content     :text
 #  description :string
-#  hit         :integer(4)       default(0)
+#  hit         :integer(4)       default("not_hit")
 #  img         :string           default("no_image.jpg")
 #  keywords    :string
 #  old_price   :float
