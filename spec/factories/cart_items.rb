@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: cart_items
@@ -17,7 +19,7 @@
 FactoryBot.define do
   factory :cart_item do
     association :film, factory: :film
-    association :cart,    factory: :cart
+    association :cart, factory: :cart
 
     quantity { 1 }
   end
