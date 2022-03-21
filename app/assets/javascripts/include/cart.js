@@ -59,9 +59,9 @@
       });
     };
     $('body').on('click', '.add-to-cart-link', function(e) {
-      var access, mod, product_id, quantity;
+      var access, mod, film_id, quantity;
       e.preventDefault();
-      product_id = $(this).data('id');
+      film_id = $(this).data('id');
       quantity = $('.quantity input').val() ? +$('.quantity input').val() : 1;
       mod = $('.available select').val();
       access = +$('#cart_access').val();
@@ -75,7 +75,7 @@
         },
         url: '/cart/items',
         data: {
-          product_id: product_id,
+          film_id: film_id,
           quantity: quantity,
           mod: mod
         },
