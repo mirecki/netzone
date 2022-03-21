@@ -6,12 +6,10 @@ require 'pagy/extras/bootstrap'
 # Customize only what you really need and notice that Pagy works also without any of the following lines.
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
 
-
 # Pagy Variables
 # See https://ddnexus.github.io/pagy/api/pagy#variables
 # All the Pagy::VARS are set for all the Pagy instances but can be overridden
 # per instance by just passing them to Pagy.new or the #pagy controller method
-
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
@@ -19,7 +17,7 @@ require 'pagy/extras/bootstrap'
 # Pagy::VARS[:items]  = 20                                 # default
 # Pagy::VARS[:outset] = 0                                  # default
 
-Pagy::VARS[:items]  = 9                                 # default
+Pagy::VARS[:items] = 9 # default
 
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables
@@ -31,10 +29,8 @@ Pagy::VARS[:items]  = 9                                 # default
 # Pagy::VARS[:i18n_key]   = 'pagy.item_name'                # default
 # Pagy::VARS[:cycle]      = true                            # example
 
-
 # Extras
 # See https://ddnexus.github.io/pagy/extras
-
 
 # Backend Extras
 
@@ -61,7 +57,6 @@ Pagy::VARS[:items]  = 9                                 # default
 # require 'pagy/extras/searchkick'
 # uncomment if you are going to use Searchkick.pagy_search
 # Searchkick.extend Pagy::Searchkick
-
 
 # Frontend Extras
 
@@ -98,7 +93,6 @@ Pagy::VARS[:items]  = 9                                 # default
 # Multi size var used by the *_nav_js helpers
 # See https://ddnexus.github.io/pagy/extras/navs#steps
 # Pagy::VARS[:steps] = { 0 => [2,3,3,2], 540 => [3,5,5,3], 720 => [5,7,7,5] }   # example
-
 
 # Feature Extras
 
@@ -139,14 +133,12 @@ Pagy::VARS[:items]  = 9                                 # default
 # set to false if you want to make :enable_trim_extra an opt-in variable
 # Pagy::VARS[:enable_trim_extra] = false # default true
 
-
 # Rails
 
 # Rails: extras assets path required by the helpers that use javascript
 # (pagy*_nav_js, pagy*_combo_nav_js, and pagy_items_selector_js)
 # See https://ddnexus.github.io/pagy/extras#javascript
 # Rails.application.config.assets.paths << Pagy.root.join('javascripts')
-
 
 # I18n
 
@@ -176,7 +168,6 @@ Pagy::VARS[:items]  = 9                                 # default
 #                 {locale: 'xyz',  # not built-in
 #                  filepath: 'path/to/pagy-xyz.yml',
 #                  pluralize: lambda{|count| ... } )
-
 
 # I18n extra: uses the standard i18n gem which is ~18x slower using ~10x more memory
 # than the default pagy internal i18n (see above)

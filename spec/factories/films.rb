@@ -32,7 +32,7 @@ FactoryBot.define do
 
     title       { Faker::Lorem.word.camelcase }
     bytitle     { title.downcase }
-    img         { 'f-1.png' }
+    img         { 'f-1.jpg' }
     content     { Faker::Lorem.sentence(word_count: 10) }
     keywords    { title.downcase }
     description { content }
