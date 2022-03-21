@@ -33,7 +33,7 @@ class Cart < ApplicationRecord
     return 0 if cart_items.none?
 
     cart_items.joins(:film)
-              .select('(cart_items.quantity * products.price) as total')
+              .select('(cart_items.quantity * films.price) as total')
               .sum(&:total)
   end
 end

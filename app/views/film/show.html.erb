@@ -1,0 +1,334 @@
+<!-- start-breadcrumbs
+-->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="breadcrumbs-main">
+      <ol class="breadcrumb">
+        <li>
+          <a href="/">
+            <%= render_breadcrumbs %>
+          </a>
+        </li>
+        <li class="active">
+          <%= link_to @film.category.title, category_path(@film.category) %>
+        </li>
+        <li class="active">
+          <%= @film.title %>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<!-- end-breadcrumbs
+-->
+<!-- start-single
+-->
+<div class="single contact">
+  <div class="container">
+    <div class="single-main">
+      <div class="col-md-9 single-main-left">
+        <div class="sngl-top">
+          <div class="col-md-5 single-top-left">
+            <% if @film.galleries.present? %>
+              <div class="flexslider">
+                <ul class="slides">
+                  <% @film.galleries.each do |item| %>
+                    <li data-thumb="<%= asset_path 'films/' + item.img %>">
+                      <div class="thumb-image">
+                        <img alt="Film Image" class="img-responsive" data-imagezoom="true" src="<%= asset_path 'films/' + item.img %>"/>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% else %>
+              <div class="flexslider">
+                <ul class="slides">
+                  <li data-thumb="<%= asset_path 'films/' + @film.img %>">
+                    <div class="thumb-image">
+                      <img alt="Film Image" class="img-responsive" data-imagezoom="true" src="<%= asset_path 'films/' + @film.img %>"/>
+                    </div>
+                  </li>
+                  <li data-thumb="<%= asset_path 'films/g-1.jpg' %>">
+                    <div class="thumb-image">
+                      <img alt="Film Image" class="img-responsive" data-imagezoom="true" src="<%= asset_path 'films/g-1.jpg' %>"/>
+                    </div>
+                  </li>
+                  <li data-thumb="<%= asset_path 'films/g-2.jpg' %>">
+                    <div class="thumb-image">
+                      <img alt="Film Image" class="img-responsive" data-imagezoom="true" src="<%= asset_path 'films/g-2.jpg' %>"/>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-7 single-top-right">
+            <div class="single-para simpleCart_shelfItem">
+              <h2>
+                <%= @film.title %>
+              </h2>
+              <h4>
+                <%= @film.bytitle %>
+              </h4>
+              <div class="star-on">
+                <ul class="star-footer">
+                  <li>
+                    <a href="#">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i></i>
+                    </a>
+                  </li>
+                </ul>
+                <div class="review">
+                  <a href="#">1 customer review</a>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <h5 class="item_price">
+                  <%= @film.price %>
+              </h5>
+              <% if @film.old_price %>
+                <small>
+                  <del>
+                    <%= @film.old_price %>
+                  </del>
+                </small>
+              <% end %>
+              <p>
+                <%= @film.content %>
+              </p>
+              <div class="available">
+                <ul>
+                  <li>
+                    License
+                    <select>
+                      <option>1 Day</option>
+                      <option>1 Week</option>
+                      <option>1 Month</option>
+                      <option>1 Year</option>
+                    </select>
+                  </li>
+                  <li class="size-in">
+                    Quality
+                    <select>
+                      <option>360p</option>
+                      <option>480p</option>
+                      <option>720p</option>
+                      <option>1080p</option>
+                      <option>1440p</option>
+                      <option>2160p</option>
+                    </select>
+                  </li>
+                  <div class="clearfix"></div>
+                </ul>
+              </div>
+              <ul class="tag-men">
+                <li>
+                  <span>CATEGORY</span>
+                  <strong>
+                    <%= link_to @film.category.title, category_path(@film.category) %>
+                </li>
+                <li>
+                  <span>STUDIO</span>
+                  <strong>
+                    <%= link_to @film.studio.title, studio_path(@film.studio) %>
+                  </strong>
+                </li>
+              </ul>
+              <div class="quantity">
+                <input min="1" name="quantity" size="4" step="1" type="number" value="1">/</input>
+              </div>
+              <%= link_to 'ADD TO CART',                       
+                cart_items_path,                             
+                remote: true,                                
+                data: { method: :post, id: @film.id },    
+                class: "add-cart item_add add-to-cart-link", 
+                id: "filmAdd"                             
+               %>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="tabs">
+          <ul class="menu_drop">
+            <li class="item1">
+              <a href="#">
+                <img src="<%= asset_path 'arrow.png' %>"/>
+                Description
+              </a>
+              <ul>
+                <li class="subitem1">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem2">
+                  <a href="#">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem3">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="item2">
+              <a href="#">
+                <img src="<%= asset_path 'arrow.png' %>"/>
+                Additional information
+              </a>
+              <ul>
+                <li class="subitem1">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem2">
+                  <a href="#">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem3">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="item3">
+              <a href="#">
+                <img src="<%= asset_path 'arrow.png' %>"/>
+                Reviews (10)
+              </a>
+              <ul>
+                <li class="subitem1">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem2">
+                  <a href="#">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem3">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="item4">
+              <a href="#">
+                <img src="<%= asset_path 'arrow.png' %>"/>
+                Helpful Links
+              </a>
+              <ul>
+                <li class="subitem1">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem2">
+                  <a href="#">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem3">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="item5">
+              <a href="#">
+                <img src="<%= asset_path 'arrow.png' %>"/>
+                Make A Gift
+              </a>
+              <ul>
+                <li class="subitem1">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem2">
+                  <a href="#">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </a>
+                </li>
+                <li class="subitem3">
+                  <a href="#">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <% unless @film.related.nil? %>
+          <div class="latestfilms">
+            <div class="film-one">
+              <% if @film.related.any? %>
+                <h3>Related Films</h3>
+                <% @film.related.each do |related| %>
+                  <div class="col-md-4 film-left p-left">
+                    <%= render 'include/film/film', film: related %>
+                  </div>
+                <% end %>
+                <div class="clearfix"></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <% if recent_films.any? %>
+          <div class="latestfilms">
+            <div class="film-one">
+              <h3>Recently viewed Films</h3>
+              <% recent_films.each do |recently| %>
+                <div class="col-md-4 film-left p-left">
+                  <%= render 'include/film/film', film: recently %>
+                </div>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3 single-right">
+        <%= render 'include/shared/sidebar' %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- end-single
+-->
+<input id="cart_access" type="hidden" value="<%= current_user ? 88 : 99 %>">/</input>

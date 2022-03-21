@@ -8,8 +8,8 @@ RSpec.describe SearchController, type: :controller do
   describe 'GET #index' do
     subject! { get :index, params: { query: query, format: :json } }
 
-    let!(:film) { create(:film, title: 'film_for_searching') }
-    let(:query) { 'fil' }
+    let!(:film) { create(:film, title: 'magnificent_film_for_searching') }
+    let(:query) { 'magnif' }
 
     context 'search film' do
       it 'find film in db' do

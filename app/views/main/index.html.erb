@@ -1,0 +1,81 @@
+<!-- banner-starts
+-->
+<div class="bnr" id="home">
+  <div class="callbacks_container" id="top">
+    <ul class="rslides" id="slider4">
+      <li>
+        <%= image_tag 'banner/bnr-1.jpg', alt: 'First Banner' %>
+      </li>
+      <li>
+        <%= image_tag 'banner/bnr-2.jpg', alt: 'Second Banner' %>
+      </li>
+      <li>
+        <%= image_tag 'banner/bnr-3.jpg', alt: 'Third Banner' %>
+      </li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<!-- banner-ends
+-->
+<% if @studios.nil? %>
+  <h2>No Studios</h2>
+<% else %>
+  <!-- about-starts
+  -->
+  <div class="about">
+    <div class="container">
+      <%= link_to studios_path do %>
+        <h2 class="mini-title">Studios</h2>
+      <% end %>
+      <div class="about-top grid-1">
+        <% @studios.each do |studio| %>
+          <%= link_to studio_path(studio) do %>
+            <div class="col-md-4 about-left">
+              <figure class="effect-bubba">
+                <%= image_tag 'studios/' + studio.img, alt: "Studio", class: "img-responsive" %>
+                <figcaption>
+                  <h2>
+                    <%= studio.title %>
+                  </h2>
+                  <p>
+                    <%= studio.description %>
+                  </p>
+                </figcaption>
+              </figure>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <!-- about-end
+  -->
+<% end %>
+<% if @hits.nil? %>
+  <h2>No Hits</h2>
+<% else %>
+  <!-- film-starts
+  -->
+  <div class="film">
+    <div class="container">
+      <div class="film-top">
+        <%= link_to film_index_path do %>
+          <h2 class="mini-title">Hits</h2>
+        <% end %>
+        <div class="film-one">
+          <% @hits.each do |hit| %>
+            <div class="col-md-3 film-left">
+              <%= render 'include/film/film', film: hit %>
+            </div>
+          <% end %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<input id="cart_access" type="hidden" value="<%= current_user ? 88 : 99 %>">/</input>
+<!-- film-end
+-->
