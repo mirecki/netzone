@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+  include Pundit::Authorization
+
   protect_from_forgery with: :exception
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
-  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def current_cart
+    @current_cart ||= Cart.find_or_create_by(user: current_user)
+  end
+
+  delegate :cart_items, to: :current_cart
+
+  helper_method :current_cart, :cart_items
+
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
   private
 
@@ -17,13 +29,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
-  def configure_permitted_parameters
-    added_attrs = %i[email password password_confirmation nickname name remember_me]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :sign_in, keys: %i[email password]
-    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-  end
 
   def render_not_found
     render json: { error: 'Record not found' }, status: :not_found

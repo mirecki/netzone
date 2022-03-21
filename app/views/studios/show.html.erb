@@ -1,0 +1,42 @@
+<!-- start-breadcrumbs
+-->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="breadcrumbs-main">
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to render_breadcrumbs, root_path %>
+        </li>
+        <li>
+          <%= link_to 'Studios', studios_path %>
+        </li>
+        <li class="active">
+          <%= @studio.title %>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<!-- end-breadcrumbs
+-->
+<!-- prdt-starts
+-->
+<div class="prdt">
+  <div class="container">
+    <div class="prdt-top">
+      <div class="col-md-9 prdt-left">
+        <% if @studio.films.empty? %>
+          <h3>No films in this category yet</h3>
+        <% else %>
+          <%= render 'include/film/films', films: @studio.films %>
+        <% end %>
+      </div>
+      <div class="col-md-3 prdt-right">
+        <%= render 'include/shared/sidebar' %>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+<!-- prdt-ends
+-->

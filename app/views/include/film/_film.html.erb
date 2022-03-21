@@ -1,0 +1,29 @@
+<div class="film-main simpleCart_shelfItem">
+  <%= link_to (image_tag 'films/' + film.img, class: "img-responsive zoom-img"), film_path(film), class: "mask" %>
+  <div class="film-bottom">
+    <h3>
+      <%= link_to film.title, film_path(film) %>
+    </h3>
+    <p>Explore Now</p>
+    <h4>
+      <a class="item_add add-to-cart-link" data-id="<%= film.id %>" href="cart/add?id=<%= film.id %>">
+        <i></i>
+      </a>
+      <span class="item_price">
+        $ #{film.price}
+      </span>
+      <% if film.old_price %>
+        <small>
+          <del>
+            <%= film.old_price %>
+          </del>
+        </small>
+      <% end %>
+    </h4>
+  </div>
+  <div class="srch">
+    <span>
+      \- #{film.discount} %
+    </span>
+  </div>
+</div>

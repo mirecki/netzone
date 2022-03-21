@@ -1,0 +1,8 @@
+<div class="film-one">
+  <% films.each do |film| %>
+    <div class="col-md-4 film-left p-left">
+      <%= render 'include/film/film', film: film %>
+    </div>
+  <% end %>
+  <div class="clearfix"></div>
+</div>
