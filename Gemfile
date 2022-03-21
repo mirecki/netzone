@@ -71,6 +71,7 @@ end
 group :development do
   gem 'annotate', '~> 3.1', '>= 3.1.1', require: false
   gem 'brakeman', require: false
+  gem 'bullet', '~> 6.1', '>= 6.1.4'
   # Code metric tool for rails codes
   gem 'rails_best_practices', '~> 1.21', require: false
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
