@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :film, only: %i[index show]
+  resources :films, only: %i[index show]
   resources :studios, only: %i[index show]
-  resources :category, only: [:show]
+  resources :categories, only: [:show]
   resources :search,    only: [:index]
 
   resource :cart, only: %i[destroy show] do
