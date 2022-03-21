@@ -27,18 +27,18 @@
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <%= f.error_notification %>
                 <div class="form-group has-feedback">
-                  <%= f.input :email,                                                                     | %>
-                    required: false,                                                                    |
-                    autofocus: true,                                                                    |
-                    input_html: { autocomplete: "email", class: "form-control", placeholder:  "Email" } |
-                  <% end %>
+                  <%= f.input :email,                                                                   
+                    required: false,                                                                    
+                    autofocus: true,                                                                    
+                    input_html: { autocomplete: "email", class: "form-control", placeholder:  "Email" } 
+                  %>
                   <span aria-hidden="true" class="glyphicon form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                  <%= f.input :password,                                                                                | %>
-                    required: false,                                                                                  |
-                    input_html: { autocomplete: "current-password", class: "form-control", placeholder:  "Password" } |
-                  <% end %>
+                  <%= f.input :password,                                                                             
+                    required: false,                                                                                  
+                    input_html: { autocomplete: "current-password", class: "form-control", placeholder:  "Password" } 
+                   %>
                   <span aria-hidden="true" class="glyphicon form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
