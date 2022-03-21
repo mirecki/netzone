@@ -15,8 +15,6 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,8 +44,9 @@ gem 'pundit', '~> 2.1'
 gem 'rails_admin'
 gem 'simple_form'
 
-gem 'oj'
-gem 'oj_mimic_json'
+gem 'oj', '~> 3.11', '>= 3.11.8'
+# An experimental Object-base Parallel Evaluation Environment.
+gem 'oj_mimic_json', '~> 1.0', '>= 1.0.1'
 
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'omniauth-facebook', '~> 8.0'
@@ -55,12 +54,6 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
-gem 'coffee-rails'
-
-
-gem 'haml'
-gem 'haml-rails'
 
 group :development, :test do
   gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
@@ -76,7 +69,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '~> 3.1', '>= 3.1.1',  require: false
+  gem 'annotate', '~> 3.1', '>= 3.1.1', require: false
   gem 'brakeman', require: false
   # Code metric tool for rails codes
   gem 'rails_best_practices', '~> 1.21', require: false
@@ -103,11 +96,12 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
+  gem 'launchy', '~> 2.5'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'db-query-matchers'
+  gem 'json_spec', '~> 1.1', '>= 1.1.5'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'webdrivers'
-  gem 'db-query-matchers'
-  gem 'json_spec'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
