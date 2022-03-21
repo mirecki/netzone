@@ -389,8 +389,8 @@ sql = <<-EOL
   (id, film_id, img)
   VALUES
   (1, 2, 'f-2.png'),
-  (2, 2, 'r-2.jpg'),
-  (3, 2, 'r-3.jpg')
+  (2, 2, 'g-1.jpg'),
+  (3, 2, 'g-2.jpg')
 EOL
 
 sql.split(';').each do |s|

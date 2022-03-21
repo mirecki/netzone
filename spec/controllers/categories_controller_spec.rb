@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
+RSpec.describe CategoryController, type: :controller do
   render_views
 
   describe 'GET #show' do
