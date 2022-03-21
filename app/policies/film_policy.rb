@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FilmPolicy < ApplicationPolicy
   def show?
     user.admin? || user.present? if user
