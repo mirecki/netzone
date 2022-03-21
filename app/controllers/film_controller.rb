@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FilmsController < ApplicationController
+class FilmController < ApplicationController
   before_action :set_film, only: [:show]
   helper_method :recent_films
 
@@ -21,7 +21,7 @@ class FilmsController < ApplicationController
     set_page_options
   end
 
-  def recent_filmss
+  def recent_films
     [] if recently.none?
     Film.where(id: recently)
   end
@@ -46,5 +46,6 @@ class FilmsController < ApplicationController
 
   def set_page_options
     set_meta_tags @film.slice(:title, :description, :keywords)
+    add_breadcrumb 'Home', :root_path, title: 'Home'
   end
 end
