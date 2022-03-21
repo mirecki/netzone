@@ -1,16 +1,52 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
   <head>
-    <title>Netzone</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+      <%= display_meta_tags title:        @page_title        || 'Netzone',
+                         description:  @page_description  || 'Clone of Netflix and Amazon',
+                         keywords:     @page_keywords     || 'Film Store Marvel WarnerBros Netflix', reverse: true %>
+      <%= favicon_link_tag 'favicon.ico' %>
+      <%= csrf_meta_tags %>``
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf8" type="text/javascript"></script>
   </head>
-
   <body>
-    <%= yield %>
+    <!-- top-header
+    -->
+    <%= render 'include/main/top_header' %>
+    <!-- top-header
+    -->
+    <!-- notifications
+    -->
+    <%= render 'include/main/notifications' %>
+    <!-- notifications
+    -->
+    <!-- start-logo
+    -->
+    <div class="logo">
+      <%= link_to root_path do %>
+        <h1>Netzone</h1>
+      <% end %>
+    </div>
+    <!-- start-logo
+    -->
+    <!-- bottom-header
+    -->
+    <%= render 'include/main/bottom_header' %>
+    <!-- bottom-header
+    -->
+    <div class="content">
+      <%= yield %>
+    </div>
+    <!-- footer
+    -->
+    <%= render 'include/main/footer' %>
+    <!-- footer
+    -->
   </body>
 </html>
