@@ -1,5 +1,3 @@
-# README
-TODO
 
 bundle install
 
